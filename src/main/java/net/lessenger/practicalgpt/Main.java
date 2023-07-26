@@ -19,8 +19,8 @@ import java.util.regex.Pattern;
 @CommandLine.Command(name = "convert", mixinStandardHelpOptions = true, version = "convert 1.0", description = "Converts a PDF resume into other formats")
 class Main implements Callable<Integer> {
 
-    @CommandLine.Option(names = {"--input"}, description = "The file to be converted")
-    private File inputFile;
+    @CommandLine.Option(names = {"--resume"}, description = "The file (PDF) to be converted")
+    private File resumeFile;
     @CommandLine.Option(names = {"--output"}, description = "The output folder")
     private File output;
     @CommandLine.Option(names = {"--apikey"}, description = "OpenAI API Key")
@@ -33,7 +33,7 @@ class Main implements Callable<Integer> {
         outputFolder = output.toPath();
 
         // Extract the raw PDF text
-        final String text = extract(inputFile);
+        final String text = extract(resumeFile);
 
         // Write the raw text to file
         toFile(text, "resume_raw");
@@ -58,7 +58,6 @@ class Main implements Callable<Integer> {
     /**
      * Writes this text to file
      * @param text
-     * @return
      */
     private void toFile(final String text, final String filename) throws IOException {
 

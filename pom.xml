@@ -6,6 +6,7 @@
 
     <groupId>net.lessenger</groupId>
     <artifactId>practicalgpt</artifactId>
+    <description>Practical GPT for Business</description>
     <version>1.0</version>
 
     <properties>
