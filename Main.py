@@ -20,6 +20,7 @@ def extract(input_pdf):
     text = ''
     for page in pages:
         text += '\n' + page.page_content
+
     return text
 
 def to_file(text, filename, output_folder):
